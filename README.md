@@ -1,5 +1,5 @@
 Основы работы с Unity
-Отчет по лабораторной работе #1 выполнил(а):
+Отчет по лабораторной работе #3 выполнил(а):
 - Кулаков Иван Александрович
 - РИ300003
 
@@ -10,13 +10,48 @@
 | Задание 3 | * |   20 |
 
 ## Цель работы
-Cоздание интерактивного приложения и изучение принципов интеграции в него игровых сервисов
+Интеграция интерфейса пользователя в разрабатываемое интерактивное приложение.
 ## Задание 1
-### По теме видео практических работ 1-5 повторить реализацию игры на Unity. Привести описание выполненных действий.
+### Используя видео-материалы практических работ 1-5 повторить реализацию игровых механик:
+### - 1 Практическая работа «Реализация механизма ловли объектов».
+### – 2 Практическая работа «Реализация графического интерфейса с добавлением счетчика очков».
 Ход работы:
-- Изменяем название сцены;
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/SceneFolder.PNG?raw=true "Интеграция")
-- Редактируем камеру
+- Создаём скрипт EnergyShield
+- В скрипте щита добавляем управление щитом при помощи движения мыши
+- Создадим холст, в верхний правый угол добавим счётчик
+- При соприкосновении щита с объектом типа Dragon Egg уничтожаем яйцо, добавляем 1 к счёту
+
+
+public class EnergyShield : MonoBehaviour
+{
+    public TextMeshProUGUI scoreGT;
+
+    void Start() {
+        GameObject scoreGO = GameObject.Find("Score");
+        scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
+        scoreGT.text = "0";
+    }
+
+    void Update() {
+        Vector3 mousePos2D = Input.mousePosition;
+        mousePos2D.z = -Camera.main.transform.position.z;
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+        Vector3 pos = this.transform.position;
+        pos.x = mousePos3D.x;
+        this.transform.position = pos;
+    }
+
+    private void OnCollisionEnter(Collision coll) {
+        GameObject Collided = coll.gameObject;
+        if(Collided.tag == "Dragon Egg"){
+            Destroy(Collided);
+        }
+        int score = int.Parse(scoreGT.text);
+        score +=1;
+        scoreGT.text = score.ToString();
+    }
+}
+
 
 ![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
 - Создаём сферу, вытягием ём по вертикали, тем самым делая яйцо, создаём материал;
