@@ -16,9 +16,9 @@ public class DragonPicker : MonoBehaviour
     {
         shieldList = new List<GameObject>();
 
-        YandexSDK sdk = YandexSDK.instance;
-        print(sdk);
-        print("SDK загружен");
+        ///YandexSDK sdk = YandexSDK.instance;
+        ///print(sdk);
+        ///print("SDK загружен");
         for (int i = 1; i<= numEnergyShield; i++){
             GameObject tShieldGo = Instantiate<GameObject>(energyShieldPrefab);
             tShieldGo.transform.position = new Vector3(0, energyShieldBottomY, 0);
