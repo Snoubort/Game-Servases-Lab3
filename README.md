@@ -16,9 +16,7 @@
 ### - 1 Практическая работа «Реализация механизма ловли объектов».
 ### – 2 Практическая работа «Реализация графического интерфейса с добавлением счетчика очков».
 Ход работы:
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/GameWorkShort.gif?raw=true "Интеграция")
-
+![https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/GameWorkShort.gif]()
 - Создаём скрипт EnergyShield
 - В скрипте щита добавляем управление щитом при помощи движения мыши
 - Создадим холст, в верхний правый угол добавим счётчик
