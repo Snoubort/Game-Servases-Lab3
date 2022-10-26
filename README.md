@@ -16,6 +16,7 @@
 ### - 1 Практическая работа «Реализация механизма ловли объектов».
 ### – 2 Практическая работа «Реализация графического интерфейса с добавлением счетчика очков».
 Ход работы:
+![](GameWorkShort.gif)
 - Создаём скрипт EnergyShield
 - В скрипте щита добавляем управление щитом при помощи движения мыши
 - Создадим холст, в верхний правый угол добавим счётчик
@@ -107,20 +108,21 @@
         }
         
   
-- Удаляем лишние папки, создаём папки с говорящими названиями, переносим задействаованный в проекте контент в них. 
+- Удаляем лишние папки, создаём папки с говорящими названиями, переносим задействованный в проекте контент в них. 
 - Остальное - удаляем     
 
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/ClearFolder.PNG?raw=true "Интеграция")
 
 ## Задание 3
 ### – 5 Практическая работа «Интеграция игровых сервисов в готовое приложение».
 - Делаем сборку приложения, выставляя параметры(предварительно установив модуль юнити для WebGL)
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/BasicBuild.PNG?raw=true "Интеграция")
 - Скачиваем плагин и перетаскиваем файл в мэнеджэр пути Unity, импортируем
 - Добавляем на сцену объект YandexGame
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGObj.PNG?raw=true "Интеграция")
 - Устанавливаем дополнительные настройки, делаем билд для яндекс игр
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGBuild.PNG?raw=true "Интеграция")
 - Билд яндекса упаковываем в zip, после чего загружаем через панель разработчика яндекс и ждём окончания проверки(не забываем перезагружать страницу, ибо иначе состояние проверки не обновится)
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGConsole.PNG?raw=true "Интеграция")
 - Проходим по ссылке, ждём загрузки, играем
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGPlay.PNG?raw=true "Интеграция")
