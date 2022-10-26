@@ -13,9 +13,7 @@ public class EnergyShield : MonoBehaviour
         scoreGT.text = "0";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Vector3 mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
