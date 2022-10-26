@@ -22,35 +22,35 @@
 - При соприкосновении щита с объектом типа Dragon Egg уничтожаем яйцо, добавляем 1 к счёту
 
 
-public class EnergyShield : MonoBehaviour
-{
-    public TextMeshProUGUI scoreGT;
+    public class EnergyShield : MonoBehaviour
+    {
+        public TextMeshProUGUI scoreGT;
 
-    void Start() {
-        GameObject scoreGO = GameObject.Find("Score");
-        scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
-        scoreGT.text = "0";
-    }
-
-    void Update() {
-        Vector3 mousePos2D = Input.mousePosition;
-        mousePos2D.z = -Camera.main.transform.position.z;
-        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-        Vector3 pos = this.transform.position;
-        pos.x = mousePos3D.x;
-        this.transform.position = pos;
-    }
-
-    private void OnCollisionEnter(Collision coll) {
-        GameObject Collided = coll.gameObject;
-        if(Collided.tag == "Dragon Egg"){
-            Destroy(Collided);
+        void Start() {
+            GameObject scoreGO = GameObject.Find("Score");
+            scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
+            scoreGT.text = "0";
         }
-        int score = int.Parse(scoreGT.text);
-        score +=1;
-        scoreGT.text = score.ToString();
+
+        void Update() {
+            Vector3 mousePos2D = Input.mousePosition;
+            mousePos2D.z = -Camera.main.transform.position.z;
+            Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+            Vector3 pos = this.transform.position;
+            pos.x = mousePos3D.x;
+            this.transform.position = pos;
+        }
+
+        private void OnCollisionEnter(Collision coll) {
+            GameObject Collided = coll.gameObject;
+            if(Collided.tag == "Dragon Egg"){
+                Destroy(Collided);
+            }
+            int score = int.Parse(scoreGT.text);
+            score +=1;
+            scoreGT.text = score.ToString();
+        }
     }
-}
 
 
 ![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
