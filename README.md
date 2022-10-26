@@ -20,143 +20,48 @@
 - В скрипте щита добавляем управление щитом при помощи движения мыши
 - Создадим холст, в верхний правый угол добавим счётчик
 - При соприкосновении щита с объектом типа Dragon Egg уничтожаем яйцо, добавляем 1 к счёту
+- Пример работы игры смотри в гифке в начале задания 1
 
 
-'''
-    public class EnergyShield : MonoBehaviour
-    {
-        public TextMeshProUGUI scoreGT;
-
-        void Start() {
-            GameObject scoreGO = GameObject.Find("Score");
-            scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
-            scoreGT.text = "0";
-        }
-
-        void Update() {
-            Vector3 mousePos2D = Input.mousePosition;
-            mousePos2D.z = -Camera.main.transform.position.z;
-            Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-            Vector3 pos = this.transform.position;
-            pos.x = mousePos3D.x;
-            this.transform.position = pos;
-        }
-
-        private void OnCollisionEnter(Collision coll) {
-            GameObject Collided = coll.gameObject;
-            if(Collided.tag == "Dragon Egg"){
-                Destroy(Collided);
-            }
-            int score = int.Parse(scoreGT.text);
-            score +=1;
-            scoreGT.text = score.ToString();
-        }
-    }
-'''
-
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
-- Создаём сферу, вытягием ём по вертикали, тем самым делая яйцо, создаём материал;
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/EggAndEggMaterial.PNG?raw=true "Интеграция")
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/SimpleEggMat.PNG?raw=true "Интеграция")
-- Импортируем пак драконов;
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/ImportedDragons.PNG?raw=true "Интеграция")
-- Делаем дубликат модели дракона;
-- Создаём новый контроллер анимации для дракона, редактируем, вешаем новый котроллер на дубликат дракона;
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Animation.PNG?raw=true "Интеграция")
-- Создаём щит и материал для него;
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/ShieldMat.PNG?raw=true "Интеграция")
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/ShieldPrefab.PNG?raw=true "Интеграция")
-
-- Импортируем огненные материалы, добавляем текстуры для яца и земли;
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/ImportedParticles.PNG?raw=true "Интеграция")
-
-- Создаём скрипт движения для дракона, делаем так, чтоб он случайно менял направление движения, так же делаем, чтоб дракон с определённым интервалом спавнил яйца из префаба;
-
-
-        public class EnemyDragon : MonoBehaviour
+        public class EnergyShield : MonoBehaviour
         {
-            public GameObject dragonEggPrefab;
-            public float speed = 1;
-            public float timeBetweenEggDrops = 1f;
-            public float leftRightDistance = 10f;
-            public float chanceDirection = 0.1f;
-            // Start is called before the first frame update
-            void Start()
-            {
-                Invoke("DropEgg", 2f);
+            public TextMeshProUGUI scoreGT;
+
+            void Start() {
+                GameObject scoreGO = GameObject.Find("Score");
+                scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
+                scoreGT.text = "0";
             }
 
-            void DropEgg(){
-                Vector3 myVector = new Vector3(0.0f, 5.0f, 0.0f);
-                GameObject egg = Instantiate<GameObject>(dragonEggPrefab);
-                egg.transform.position = transform.position + myVector;
-                Invoke("DropEgg", timeBetweenEggDrops);
+            void Update() {
+                Vector3 mousePos2D = Input.mousePosition;
+                mousePos2D.z = -Camera.main.transform.position.z;
+                Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+                Vector3 pos = this.transform.position;
+                pos.x = mousePos3D.x;
+                this.transform.position = pos;
             }
 
-            // Update is called once per frame
-            void Update()
-            {
-                Vector3 pos = transform.position;
-                pos.x += speed * Time.deltaTime;
-                transform.position = pos;
-
-                if (pos.x < -leftRightDistance){
-                    speed = Mathf.Abs(speed);
+            private void OnCollisionEnter(Collision coll) {
+                GameObject Collided = coll.gameObject;
+                if(Collided.tag == "Dragon Egg"){
+                    Destroy(Collided);
                 }
-                else if (pos.x > leftRightDistance){
-                    speed = -Mathf.Abs(speed);
-                }
-            }
-
-            private void FixedUpdate() {
-                if (Random.value < chanceDirection){
-                    speed *= -1;
-                }
+                int score = int.Parse(scoreGT.text);
+                score +=1;
+                scoreGT.text = score.ToString();
             }
         }
-        
-
-- Создём скрипт для яйца, при падении ниже определённого Y яйцо уничтожается, при касание же земли яйцо становится невидимым и запсукает систему частиц;
 
 
-        public class DragonEgg : MonoBehaviour
-        {
-            public static float bottomY = -30f;
-            // Start is called before the first frame update
-            void Start()
-            {
-
-            }
-
-            private void OnTriggerEnter(Collider other) {
-                ParticleSystem ps = GetComponent<ParticleSystem>();
-                var em = ps.emission;
-                em.enabled = true;
-
-                Renderer rend;
-                rend = GetComponent<Renderer>();
-                rend.enabled = false;
-            }
-
-            // Update is called once per frame
-            void Update()
-            {
-                if(transform.position.y < bottomY){
-                    Destroy(this.gameObject);
-                }
-            }
-        }
-        
-
-- Создаём спавн нескольких щитов разного радиуса из префаба
+## Задание 2
+### – 3 Практическая работа «Уменьшение жизни. Добавление текстур».
+### – 4 Практическая работа «Структурирование исходных файлов в папке».
+- В скрипте DragonPicker создаём список щитов
+- В цикл создания щитов на старте добавляем строчку с добавлением щита в ранее созданный список
+- В этом же скрипте в функцию DragonEggDestroyd добавляем код, который при падении яйца мимо щита уменьшает размер массива щитов на 1, а так же удаляет последний щит(поскольку добавлялись они по мере создания, то он же и самый большой)
+- Здесь же добавляем условие рестарта игры при 0 щитов
+- Демонстрация в гифке в первом задании
 
 
         public class DragonPicker : MonoBehaviour
@@ -165,16 +70,17 @@
             public int numEnergyShield = 3;
             public float energyShieldBottomY = -6f;
             public float energyShieldRadius = 1.5f;
-            // Start is called before the first frame update
+
+            public List<GameObject> shieldList;
+
             void Start()
             {
-                YandexSDK sdk = YandexSDK.instance;
-                print(sdk);
-                print("SDK загружен");
+                shieldList = new List<GameObject>();
                 for (int i = 1; i<= numEnergyShield; i++){
                     GameObject tShieldGo = Instantiate<GameObject>(energyShieldPrefab);
                     tShieldGo.transform.position = new Vector3(0, energyShieldBottomY, 0);
                     tShieldGo.transform.localScale = new Vector3(1*i, 1*i, 1*i);
+                    shieldList.Add(tShieldGo);
                 }
             }
 
@@ -183,15 +89,38 @@
             {
 
             }
+
+            public void DragonEggDestroyd(){
+                GameObject[] tDragonEggArray = GameObject.FindGameObjectsWithTag("Dragon Egg");
+                foreach (GameObject tGO in tDragonEggArray){
+                    Destroy(tGO);
+                }
+                int shieldIndex = shieldList.Count -1;
+                GameObject tShieldGo = shieldList[shieldIndex];
+                shieldList.RemoveAt(shieldIndex);
+                Destroy(tShieldGo);
+
+                if (shieldList.Count == 0){
+                    SceneManager.LoadScene("_0Scene");
+                }
+            }
         }
-
-![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/GameWithEggDragonShield.PNG?raw=true "Интеграция")
-
-## Задание 2
-### В проект, выполненный в предыдущем задании, добавить систему проверки того, что SDK подключен (доступен в режиме онлайн и отвечает на запросы):
-- Импортируем в Unity YandexSDK
-- Инициализируем SDK при старте игры
-- Добавляем на сцену объект SDK
-- Выводим в консолько сам SDK, если запуск был не успешен, то выведется ошибка, смотри код в предыдущем пункте
         
-        
+  
+- Удаляем лишние папки, создаём папки с говорящими названиями, переносим задействаованный в проекте контент в них. 
+- Остальное - удаляем     
+
+![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+
+## Задание 3
+### – 5 Практическая работа «Интеграция игровых сервисов в готовое приложение».
+- Делаем сборку приложения, выставляя параметры(предварительно установив модуль юнити для WebGL)
+![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+- Скачиваем плагин и перетаскиваем файл в мэнеджэр пути Unity, импортируем
+- Добавляем на сцену объект YandexGame
+![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+- Устанавливаем дополнительные настройки, делаем билд для яндекс игр
+![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+- Билд яндекса упаковываем в zip, после чего загружаем через панель разработчика яндекс и ждём окончания проверки(не забываем перезагружать страницу, ибо иначе состояние проверки не обновится)
+![Скрин интеграция](https://github.com/Snoubort/Game-Sevases-Lab2/blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%D1%8B%20%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%202/Camera.PNG?raw=true "Интеграция")
+- Проходим по ссылке, ждём загрузки, играем
