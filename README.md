@@ -16,12 +16,12 @@
 ### - 1 Практическая работа «Реализация механизма ловли объектов».
 ### – 2 Практическая работа «Реализация графического интерфейса с добавлением счетчика очков».
 Ход работы:
-![image](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/GameWorkShort.gif)
+![Демонстрация работы](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/BasicDemo.PNG)
 - Создаём скрипт EnergyShield
 - В скрипте щита добавляем управление щитом при помощи движения мыши
 - Создадим холст, в верхний правый угол добавим счётчик
 - При соприкосновении щита с объектом типа Dragon Egg уничтожаем яйцо, добавляем 1 к счёту
-- Пример работы игры смотри в гифке в начале задания 1
+- Пример работы игры смотри в корне проекта
 
 
         public class EnergyShield : MonoBehaviour
@@ -62,7 +62,7 @@
 - В цикл создания щитов на старте добавляем строчку с добавлением щита в ранее созданный список
 - В этом же скрипте в функцию DragonEggDestroyd добавляем код, который при падении яйца мимо щита уменьшает размер массива щитов на 1, а так же удаляет последний щит(поскольку добавлялись они по мере создания, то он же и самый большой)
 - Здесь же добавляем условие рестарта игры при 0 щитов
-- Демонстрация в гифке в первом задании
+- Демонстрация в гифке в корне проекта
 
 
         public class DragonPicker : MonoBehaviour
@@ -111,18 +111,18 @@
 - Удаляем лишние папки, создаём папки с говорящими названиями, переносим задействованный в проекте контент в них. 
 - Остальное - удаляем     
 
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/ClearFolder.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/ClearFolder.PNG)
 
 ## Задание 3
 ### – 5 Практическая работа «Интеграция игровых сервисов в готовое приложение».
 - Делаем сборку приложения, выставляя параметры(предварительно установив модуль юнити для WebGL)
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/BasicBuild.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/BasicBuild.PNG)
 - Скачиваем плагин и перетаскиваем файл в мэнеджэр пути Unity, импортируем
 - Добавляем на сцену объект YandexGame
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGObj.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGObj.PNG)
 - Устанавливаем дополнительные настройки, делаем билд для яндекс игр
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGBuild.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGBuild.PNG)
 - Билд яндекса упаковываем в zip, после чего загружаем через панель разработчика яндекс и ждём окончания проверки(не забываем перезагружать страницу, ибо иначе состояние проверки не обновится)
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGConsole.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGConsole.PNG)
 - Проходим по ссылке, ждём загрузки, играем
-![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGPlay.PNG?raw=true "Интеграция")
+![Скрин интеграция](https://github.com/Snoubort/Game-Servases-Lab3/blob/main/MatForReadMe/YGPlay.PNG)
